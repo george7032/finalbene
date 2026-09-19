@@ -100,7 +100,7 @@ const groups: { title: string; description: string; items: Item[] }[] = [
       { src: hero9, alt: "A school event at the Academy", caption: "School events" },
       { src: park1, alt: "Children in the kids amusement park", caption: "Amusement park" },
       { src: park2, alt: "Play equipment in the kids amusement park", caption: "Supervised play" },
-      { src: park3, alt: "Children enjoying the amusement park rides", caxption: "Rides" },
+      { src: park3, alt: "Children enjoying the amusement park rides", caption: "Rides" },
     ],
   },
 ];
