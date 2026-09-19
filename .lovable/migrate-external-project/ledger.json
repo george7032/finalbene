@@ -1,0 +1,6 @@
+[
+  {"capability":"code","source":"github repo george7032/digital-doubler","outcome":"preserve","status":"verified","next_action":"none"},
+  {"capability":"assets","source":"39 images + 2 PDFs + favicon from original project","outcome":"preserve","status":"verified","next_action":"none — downloaded into public/images and public/documents"},
+  {"capability":"records","source":"none","outcome":"absent","status":"done","next_action":"static site, no database"},
+  {"capability":"secrets","source":"none","outcome":"absent","status":"done","next_action":"enquiry forms open the visitor's email app (mailto)"}
+]

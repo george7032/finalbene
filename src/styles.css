@@ -1,0 +1,233 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-poppins: "Poppins", system-ui, sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-light: hsl(var(--primary-light));
+  --color-primary-dark: hsl(var(--primary-dark));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-accent-yellow: hsl(var(--accent-yellow));
+  --color-accent-green: hsl(var(--accent-green));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+  --shadow-hover: 0 8px 30px -8px hsl(var(--primary) / 0.3);
+}
+
+:root {
+  --radius: 1rem;
+
+  --primary: 204 94% 54%;
+  --primary-foreground: 0 0% 100%;
+  --primary-light: 204 94% 64%;
+  --primary-dark: 204 94% 44%;
+
+  --secondary: 0 0% 100%;
+  --secondary-foreground: 222 47% 11%;
+
+  --accent-yellow: 48 89% 60%;
+  --accent-green: 145 63% 42%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
+
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 204 94% 54%;
+}
+
+.dark {
+  --background: 222 84% 5%;
+  --foreground: 210 40% 98%;
+  --card: 222 84% 5%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 84% 5%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 204 94% 54%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 33% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 18%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 217 33% 18%;
+  --accent-foreground: 210 40% 98%;
+  --border: 217 33% 18%;
+  --input: 217 33% 18%;
+  --ring: 204 94% 54%;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-poppins);
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+  }
+  .bg-gradient-hero {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent-green)) 100%);
+  }
+  .shadow-soft {
+    box-shadow: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+  }
+  .shadow-hover {
+    box-shadow: 0 8px 30px -8px hsl(var(--primary) / 0.3);
+  }
+  .font-poppins {
+    font-family: var(--font-poppins);
+  }
+}
+
+@layer components {
+  .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+  .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+  .animate-bounce-in { animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+
+  .hover-lift { transition: all 0.3s ease-out; }
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px -8px hsl(var(--primary) / 0.3);
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    background: #22c55e;
+    color: white;
+    padding: 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    border: 1px solid hsl(var(--border));
+  }
+  .testimonial-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+
+  .nav-link {
+    position: relative;
+    color: hsl(var(--foreground));
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .nav-link:hover { color: hsl(var(--primary)); }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: hsl(var(--primary));
+    transition: width 0.3s;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .btn-primary {
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary-light)));
+    color: hsl(var(--primary-foreground));
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-primary:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.15); transform: scale(1.05); }
+
+  .btn-secondary {
+    background: white;
+    color: hsl(var(--primary));
+    border: 2px solid hsl(var(--primary));
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: hsl(var(--primary)); color: white; }
+
+  .btn-yellow {
+    background-image: linear-gradient(to right, #facc15, #eab308);
+    color: #1f2937;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-yellow:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.15); transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.8) translateY(40px); }
+  60% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
